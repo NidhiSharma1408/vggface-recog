@@ -1,2 +1,6 @@
 venv
 images
+_pycache_
+dataset
+cnn.py
+face_recog.py
