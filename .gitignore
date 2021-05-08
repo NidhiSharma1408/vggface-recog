@@ -1,6 +1,8 @@
+__pycache__
+.vscode
 venv
-images
-_pycache_
-dataset
 cnn.py
 face_recog.py
+attendence.csv
+dataset
+images

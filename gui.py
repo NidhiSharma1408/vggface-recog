@@ -1,6 +1,8 @@
 import tkinter as tk
 import os
 from recognition import *
+from write_in_csv import write_attendence
+from datetime import datetime
 
 # load existing embeddings
 with open('dataset_faces.dat', 'rb') as f:
@@ -38,16 +40,13 @@ def addFace():
 def attendence():
     print("taking attendence")
     name = recognise(embeddings, names)
-    tk.Label(root, text=f"You are {name}").grid(row=4,column=2)
+    write_attendence(name,datetime.now())
+    tk.Label(root, text=f"You are {name}").grid(row=4,column=1)
     return
 
 
 tk.Label(root, text="Face Attencdence System").grid(row=0, column=0)
 tk.Button(root, text="Add face", padx=10, pady=10, command=addFace).grid(row=1, column=0)
 tk.Button(root, text="Mark Attendence", padx=10, pady=10, command=attendence).grid(row=2, column=0)
-
-# entry = tk.Entry(root, width=10, bg='Green', fg='White', borderwidth=5)
-# entry.grid(row=3,column=2)
-# entry.insert(0, "Enter your name!")
 
 root.mainloop()
